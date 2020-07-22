@@ -7,46 +7,47 @@ import {Link} from 'react-router-dom';
 
 
 class Login extends Component {
-    constructor(){
-        super();
-        this.state = {
+    constructor(props){
+        super(props)
+        this.state={
             registered: true,
-            a: '',
-            b: '',
-            c: '',
-            d: '',
-            e: '',
-            f: ''
-        };
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: ''
+            
+        }
+
+
         this.login=this.login.bind(this)
-        this.register=this.register.bind(this)
+        this.createUser=this.createUser.bind(this)
     }
 
     login(email, password){
         var user = {"email": email, "password": password}
         axios.post('/api/memento/users/login', user).then(res=>{
                 this.props.login(res.data.user);
-                this.props.history.push('/dashboard/gallery');
+                this.props.history.push('/dashboard');
             }).catch(res=>{
-                
+             
                 console.log(res)
             })
     }
 
-    register(firstName, lastName, city,country,email,password){
-        var user = {"firstName": firstName, "lastName": lastName, "city": city, "country": country, "email": email, "password": password}
+    createUser(firstName, lastName,email, password){
+        let user = {"firstName": firstName, "lastName": lastName, "email": email, "password": password}
         axios.post('/api/memento/users/create', user).then(res=>{
                 this.props.login(res.data.user);
-                this.props.history.push('/dashboard/gallery');
+                this.props.history.push('/dashboard');
             }).catch(res=>{
-              
+               
                 console.log(res)
             })
     }
 
     componentDidMount(){
         axios.get('/api/memento/users').then(res=>{
-        this.props.history.push('/dashboard/gallery')
+        this.props.history.push('/dashboard')
         })
     }
 
@@ -60,12 +61,12 @@ class Login extends Component {
                 <div className="reg-container">
                     
                     <div className="align-input-fields">
-                    EMAIL <br/> <input type="email" onChange={event=>{this.setState({e: event.target.value})}} required /><br/><br/>
-                    PASSWORD <br/><input type="password" onChange={event=>{this.setState({f: event.target.value})}} required /> 
+                    EMAIL <br/> <input type="email" onChange={event=>{this.setState({email: event.target.value})}} required /><br/><br/>
+                    PASSWORD <br/><input type="password" onChange={event=>{this.setState({password: event.target.value})}} required /> 
                     </div>
                     <br/><br/>
                     <div>
-                        <button className="big-button" onClick={event=>this.login(this.state.e, this.state.f) }>Submit</button> 
+                        <button className="big-button" onClick={event=>this.login(this.state.email, this.state.password) }>Submit</button> 
                         <button className="small-button" onClick={event=>{this.setState({registered: false})}}>Register first</button>
                     </div>
                 </div>
@@ -74,17 +75,15 @@ class Login extends Component {
                     
                     <div className="align-input-fields">
                     WELCOME<br/><br/>
-                    FIRST NAME <br/><input onChange={event=>{this.setState({a: event.target.value})}}/><br/><br/>
-                    LAST NAME <br/> <input onChange={event=>{this.setState({b: event.target.value})}}/><br/><br/>
-                    CITY <br/> <input onChange={event=>{this.setState({c: event.target.value})}}/><br/><br/>
-                    COUNTRY <br/> <input onChange={event=>{this.setState({d: event.target.value})}}/><br/><br/>
-                    EMAIL <br/> <input type="email" onChange={event=>{this.setState({e: event.target.value})}}/><br/><br/>
-                    PASSWORD <br/> <input  type="password" onChange={event=>{this.setState({f: event.target.value})}}/>            
+                    FIRST NAME <br/><input onChange={event=>{this.setState({firstName: event.target.value})}}/><br/><br/>
+                    LAST NAME <br/> <input onChange={event=>{this.setState({lastName: event.target.value})}}/><br/><br/>
+                    EMAIL <br/> <input type="email" onChange={event=>{this.setState({email: event.target.value})}}/><br/><br/>
+                    PASSWORD <br/> <input  type="password" onChange={event=>{this.setState({password: event.target.value})}}/>            
                     </div>
                     <br/><br/>
                     <div>
-                    *By clicking submit, you consent to sharing your info.<br/>
-                        <button className="big-button" onClick={event=>{this.register(this.state.a, this.state.b, this.state.c,this.state.d,this.state.e,this.state.f)} }>Submit</button>  
+                    *Your info is safe with us.<br/>
+                        <button className="big-button" onClick={event=>{this.register(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
                         <button className="small-button" onClick={event=>{this.setState({registered: true})}}>Login instead</button>
                     </div>
                 </div>

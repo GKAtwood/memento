@@ -2,8 +2,6 @@ create table memento_users(
     uid SERIAL PRIMARY KEY,
     firstName varchar(30),
     lastName varchar(30),
-    city TEXT,
-    country varchar(25),
     email TEXT ,
     password varchar(15)
 );

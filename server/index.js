@@ -25,7 +25,7 @@ app.use(session({
     console.log('db connected')
 });
 
-
+app.get('/api/memento/users', ctrl.sessionCheck); 
 app.post('/api/memento/users/login', ctrl.loginUser)
 app.post('/api/memento/users/create', ctrl.createUser)
 app.post('/api/memento/auth/logout', ctrl.logout)

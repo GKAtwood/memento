@@ -15,7 +15,7 @@ module.exports= {
 
         // have to wrap the "await", or else the parser will think you want to await
         // element [0] of db.users.register_user({...})
-        const newUser = (await db.create_user({firstName, lastName, city, country, password: hash, pic}))[0];
+        const newUser = (await db.create_user({firstName, lastName, city, country, email, password: hash, pic}))[0];
         req.session.user = newUser;
         res.status(200).send(newUser);
     },
@@ -25,7 +25,7 @@ module.exports= {
             db = req.app.get('db');
 
         //Checks if user is already in the database, based on email
-        const foundUser = await db.check_user({email});
+        const foundUser = await db.users.check_user({email});
         if(!foundUser[0]){
             return res.status(400).send('Email not found');
         }
@@ -39,6 +39,10 @@ module.exports= {
         //Set user on session
         req.session.user = foundUser[0];
         res.status(202).send(req.session.user);
+    },
+
+    sessionCheck: (req, res, next) => {
+        req.session.user ? res.status(200).send(req.session.user) : res.status(500).send()
     },
 
     logout: (req, res) => {
@@ -78,7 +82,7 @@ module.exports= {
     update:(req, res, next) => {
         const db = req.app.get('db')
         db.update_entry([req.params.eid,req.body.title,req.body.type,req.body.image,req.body.location,req.body.year])
-        .then(entry=> res.status(200).send())
+        .then(res=> res.status(200).send())
         .catch(error=>{console.error(error);res.status(500).send(err)})
     },
 
@@ -86,7 +90,7 @@ module.exports= {
         const db = req.app.get('db')
         console.log('entry delete eid',req.params.eid)
         db.delete_entry([req.params.eid])
-        .then(resp=> res.status(200).send(resp))
+        .then(res=> res.status(200).send(resp))
         .catch(error=>{console.error(error);res.status(500).send(err)})
         },
 }
