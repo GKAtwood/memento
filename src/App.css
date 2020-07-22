@@ -1,38 +1,202 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Economica');
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+@import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import "../node_modules/slick-carousel/slick/slick.css";
+@import "../node_modules/slick-carousel/slick/slick-theme.css";
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+.App-home {
+  
+  background-image: url("https://singularityhub.com/wp-content/uploads/2019/03/mind-fog-memory-3d-rendering-neuroscience-shutterstock-1202120962.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: right;
+  width: 100vw;
+  height: 100vh;
+ 
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: absolute;
+  top: 50px;
+  right: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100px;
+  padding: 10px;
+   color: rgb(0,80,120);
+}
+
+.App-title {
+  text-align: left;
+  font-size: 5em;
+  font-family: 'Economica', sans-serif;
+  text-shadow: 2px 2px grey;
+  cursor: default;
+  margin: 10px;
+}
+
+.login-box {
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  font-family: 'Satisfy', cursive;
+  font-size: 2em;
+  margin: 10px;
+}
+
+.login-home-button {
+   background:transparent;
+  -webkit-border-radius: 8;
+  border-radius: 8px;
+  font-family: 'Economica', cursive;
+  color: #cf5050;
+  font-size: 1em;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.home-footer {
+  display: flex;
+  font-family: 'Economica';
+  font-size: 10px;
+  color: grey;
+  text-align: left;
+  padding: 10px;
+  cursor: default;
+}
+
+@media (max-width: 450px) {
+  header {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.App-login {
+  background-image: url('https://www.weddingsutra.com/images/Vendor_Images/Photographer/Infinite%20Memories/infinite-memories-img16.jpg');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.login-header {
+
   color: white;
+  text-align: right;
 }
 
-.App-link {
-  color: #61dafb;
+.login-title {
+  color: white;
+  padding: 50px;
+  text-align: left;
+  font-size: 4em;
+  font-family: 'Economica', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.login-title a {
+   color:white;
+}
+
+.login-container {
+  align-content: center;
+  text-align: center;  
+  padding: 50px;
+  text-align: center;
+ 
+  margin: auto;
+}
+
+.reg-container {
+  background: #eeeeee;
+  opacity: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 12px;
+  display: inline-block;
+
+}
+
+.small-button {
+  margin: 10px;  
+  background: black;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.big-button {
+  margin: 10px;
+   /* background-image: linear-gradient(to bottom, #666666, #888888); */
+   background: black;
+  border-radius: 8px;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.align-input-fields input {
+  margin-left: 5px;
+  padding: 5px;
+  border: none;
+  box-shadow: 1px 1px 1px 1px grey;
+  font-family: 'Trebuchet MS', sans-serif;
+ 
+}
+
+.align-input-fields textarea {
+  margin-left: 5px;
+  padding: 5px;
+  border: none;
+  box-shadow: 1px 1px 3px 1px grey;
+  font-family: 'Trebuchet MS', sans-serif
+
+}
+
+@media (max-width: 450px)  {
+  .App-login {
+    display: flex;
+    flex-direction: column;
+    background: #005078;
   }
-  to {
-    transform: rotate(360deg);
+  .login-title {
+    padding: 10px;
+    font-size: 3em
+    
+  }
+  .login-title {
+    padding: 10px;
+    font-size: 3em
+    
+  }
+  .big-button {
+    font-size: 16px;
+    margin: 3px;
+  }
+
+  .small-button {
+    font-size: 16px;
+    margin: 3px;
   }
 }
+
