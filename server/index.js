@@ -30,6 +30,9 @@ app.post('/api/memento/users/login', ctrl.loginUser)
 app.post('/api/memento/users/create', ctrl.createUser)
 app.post('/api/memento/auth/logout', ctrl.logout)
 
+app.post('/api/memento/entries/create', ctrl.createPost)
+app.delete('/api/memento/entries/delete', ctrl.delete)
+
 
 
 
