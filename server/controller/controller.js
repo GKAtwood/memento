@@ -25,7 +25,7 @@ module.exports= {
             db = req.app.get('db');
 
         //Checks if user is already in the database, based on email
-        const foundUser = await db.users.check_user({email});
+        const foundUser = await db.check_user({email});
         if(!foundUser[0]){
             return res.status(400).send('Email not found');
         }
@@ -39,6 +39,12 @@ module.exports= {
         //Set user on session
         req.session.user = foundUser[0];
         res.status(202).send(req.session.user);
+    },
+
+    logout: (req, res) => {
+        //logout clears out the session of user data
+        req.session.destroy();
+        res.sendStatus(200);
     },
 
     createPost: (req, res) => {
@@ -69,4 +75,18 @@ module.exports= {
                 console.error(err.message);
         });
     },
+    update:(req, res, next) => {
+        const db = req.app.get('db')
+        db.update_entry([req.params.eid,req.body.title,req.body.type,req.body.image,req.body.location,req.body.year])
+        .then(entry=> res.status(200).send())
+        .catch(error=>{console.error(error);res.status(500).send(err)})
+    },
+
+    delete: (req, res, next) => {
+        const db = req.app.get('db')
+        console.log('entry delete eid',req.params.eid)
+        db.delete_entry([req.params.eid])
+        .then(resp=> res.status(200).send(resp))
+        .catch(error=>{console.error(error);res.status(500).send(err)})
+        },
 }

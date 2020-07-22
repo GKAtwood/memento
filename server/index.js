@@ -2,6 +2,7 @@ require('dotenv').config();
 const express =require('express')
 const massive = require('massive');
 const session = require('express-session');
+const ctrl = require('./controller/controller')
 
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
@@ -25,7 +26,9 @@ app.use(session({
 });
 
 
-
+app.post('/api/memento/users/login', ctrl.loginUser)
+app.post('/api/memento/users/create', ctrl.createUser)
+app.post('/api/memento/auth/logout', ctrl.logout)
 
 
 
