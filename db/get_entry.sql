@@ -1,0 +1,1 @@
+SELECT * FROM memento_entries WHERE uid =$1;

@@ -19,3 +19,6 @@ CREATE TABLE memento_entries (
     year INTEGER,
     uid INTEGER REFERENCES memento_users (uid)
 );
+
+ALTER TABLE memento_users
+ADD COLUMN pic TEXT;
