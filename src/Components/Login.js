@@ -24,7 +24,7 @@ class Login extends Component {
     }
 
     login(email, password){
-        var user = {"email": email, "password": password}
+        let user = {"email": email, "password": password}
         axios.post('/api/memento/users/login', user).then(res=>{
                 this.props.login(res.data.user);
                 this.props.history.push('/dashboard');
@@ -67,7 +67,7 @@ class Login extends Component {
                     <br/><br/>
                     <div>
                         <button className="big-button" onClick={event=>this.login(this.state.email, this.state.password) }>Submit</button> 
-                        <button className="small-button" onClick={event=>{this.setState({registered: false})}}>Register first</button>
+                        <button className="small-button" onClick={event=>{this.setState({registered: false})}}>Sign Up</button>
                     </div>
                 </div>
                 :
@@ -83,7 +83,7 @@ class Login extends Component {
                     <br/><br/>
                     <div>
                     *Your info is safe with us.<br/>
-                        <button className="big-button" onClick={event=>{this.register(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
+                        <button className="big-button" onClick={event=>{this.createUser(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
                         <button className="small-button" onClick={event=>{this.setState({registered: true})}}>Login instead</button>
                     </div>
                 </div>
