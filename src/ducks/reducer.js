@@ -1,13 +1,11 @@
 const initialState = {
-    
     user: {
-        uid: 0,
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: ''
-       
-    }
+        firstName: null,
+        lastName: null,
+        email: null,
+        password: null
+    } 
+    
 };
 
 const LOGIN = 'LOGIN';

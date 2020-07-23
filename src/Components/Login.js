@@ -24,7 +24,7 @@ class Login extends Component {
     }
 
     login(email, password){
-        var user = {"email": email, "password": password}
+        let user = {"email": email, "password": password}
         axios.post('/api/memento/users/login', user).then(res=>{
                 this.props.login(res.data.user);
                 this.props.history.push('/dashboard');
@@ -37,7 +37,7 @@ class Login extends Component {
 
 
     register(firstName, lastName, email, password){
-        var user = {"firstName": firstName, "lastName": lastName, "email": email, "password": password}
+        let user = {"firstName": firstName, "lastName": lastName, "email": email, "password": password}
         axios.post('/api/memento/users/create', user).then(res=>{
                 this.props.login(res.data.user);
                 this.props.history.push('/dashboard');
@@ -54,7 +54,7 @@ class Login extends Component {
     // }
 
     render() {
-        
+        console.log(this.login)
         return (
             <div className="App-login">
                 

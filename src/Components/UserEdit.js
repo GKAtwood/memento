@@ -40,7 +40,7 @@ class UserEdit extends Component {
             <div className="user-edit-page">
 
                 <div className="reg-container">
-                    <big>Update your deets below</big><br/><br/>
+                    <big>Update your profile below</big><br/><br/>
                     <div className="align-input-fields">
                     FIRST NAME<br/>{this.props.user.firstName} &nbsp;
                     <button onClick={e=>this.setState({aa:true})}>edit</button> 
@@ -62,7 +62,7 @@ class UserEdit extends Component {
                     {this.state.dd && 
                     <input type="password"  onChange={event=>{this.setState({password: event.target.value})}}/>}<br/><br/>
 
-                    *By clicking submit, you consent to sharing your info.<br/>
+                    *Don't worry we won't share your info.<br/>
                         <button className="big-button" onClick={event=>{this.edit(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
                     </div>
                 </div>
