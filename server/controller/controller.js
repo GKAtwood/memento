@@ -1,45 +1,75 @@
 const bcrypt = require('bcryptjs');
 
 
+
 module.exports= {
-    createUser: async(req, res) => {
-        const {firstName, lastName, city, country, email, password, pic} = req.body,
-        db = req.app.get('db')
+    create: async(req, res) => {
+       
+            const db = req.app.get('db');
 
-        const foundUser = await db.check_user({email});
-        if(foundUser[0]){
-            return res.status(400).send('Email already in use')
+     
+            const { firstName, lastName, email, password} = req.body;
+
+        // check if username is not already taken
+            const foundUser = await db.check_user({email: email});
+            if(foundUser[0]) return res.status(406).send('Try another email')
+
+         // create password hash
+            const hash = await bcrypt.hash(password, 10)
+
+
+
+        const newUser = await db.create_user({firstName, lastName, email, password});
+        delete newUser[0].hash
+                 // log user in by creating session
+        req.session.user= {
+            ...newUser[0]
         }
-        let salt = bcrypt.genSaltSync(10),
-            hash = bcrypt.hashSync(password, salt);
 
-        // have to wrap the "await", or else the parser will think you want to await
-        // element [0] of db.users.register_user({...})
-        const newUser = (await db.create_user({firstName, lastName, city, country, email, password: hash, pic}))[0];
-        req.session.user = newUser;
-        res.status(200).send(newUser);
+
+        // send session info in response so front end can decide how to use it (what to send and how to use the response depends on our app purpose)
+        res.status(200).send(req.session.user);
+        console.log('hit signup')
+
     },
+    
     loginUser: async(req, res) => {
-        //What does this function need to run properly?
-        const {email, password} = req.body,
-            db = req.app.get('db');
+        
+             const db = req.app.get('db');
 
-        //Checks if user is already in the database, based on email
-        const foundUser = await db.users.check_user({email});
-        if(!foundUser[0]){
-            return res.status(400).send('Email not found');
+         // get info from req.body
+            const { email,  password} = req.body;
+
+       
+            const foundUser = await db.check_user({email: email});
+                if(!foundUser[0]) return res.status(403).send('Email/Password incorrect')
+
+
+        // compare hashes
+            const verified = await bcrypt.compare(password, foundUser[0].hash);
+                if(!verified) return res.status(403).send('You shall not pass')
+
+       
+        delete foundUser[0].hash;
+        req.session.user= {
+            ...foundUser[0]
         }
 
-        //Compare the passwords to make they match
-        const authenticated = bcrypt.compareSync(password, foundUser[0].password);
-        if(!authenticated){
-            return res.status(401).send('Password is incorrect')
-        }
+        // send session info in response so front end can decide how to use it (what to send and how to use the response depends on our app purpose).
+        res.status(200).send(req.session.user);
 
-        //Set user on session
-        req.session.user = foundUser[0];
-        res.status(202).send(req.session.user);
+        console.log('hit sign in')
+
     },
+
+    getUsers: async (req, res) => {
+        const db = req.app.get('db');
+        
+        const users = await db.get_users();
+        
+        res.status(200).send(users);
+    },
+
 
 
                             

@@ -4,11 +4,9 @@ const initialState = {
         uid: 0,
         firstName: '',
         lastName: '',
-        city: '',
-        Country: '',
         email: '',
-        password: '',
-        pic: ''
+        password: ''
+       
     }
 };
 

@@ -20,11 +20,11 @@ class Login extends Component {
 
 
         this.login=this.login.bind(this)
-        this.createUser=this.createUser.bind(this)
+        this.register=this.register.bind(this)
     }
 
     login(email, password){
-        let user = {"email": email, "password": password}
+        var user = {"email": email, "password": password}
         axios.post('/api/memento/users/login', user).then(res=>{
                 this.props.login(res.data.user);
                 this.props.history.push('/dashboard');
@@ -34,8 +34,10 @@ class Login extends Component {
             })
     }
 
-    createUser(firstName, lastName,email, password){
-        let user = {"firstName": firstName, "lastName": lastName, "email": email, "password": password}
+
+
+    register(firstName, lastName, email, password){
+        var user = {"firstName": firstName, "lastName": lastName, "email": email, "password": password}
         axios.post('/api/memento/users/create', user).then(res=>{
                 this.props.login(res.data.user);
                 this.props.history.push('/dashboard');
@@ -45,13 +47,14 @@ class Login extends Component {
             })
     }
 
-    componentDidMount(){
-        axios.get('/api/memento/users').then(res=>{
-        this.props.history.push('/dashboard')
-        })
-    }
+    // componentDidMount(){
+    //     axios.get('/api/memento/users').then(res=>{
+    //     this.props.history.push('/dashboard')
+    //     })
+    // }
 
     render() {
+        
         return (
             <div className="App-login">
                 
@@ -66,7 +69,7 @@ class Login extends Component {
                     </div>
                     <br/><br/>
                     <div>
-                        <button className="big-button" onClick={event=>this.login(this.state.email, this.state.password) }>Submit</button> 
+                        <button className="big-button" onClick={this.login}>Submit</button> 
                         <button className="small-button" onClick={event=>{this.setState({registered: false})}}>Sign Up</button>
                     </div>
                 </div>
@@ -74,7 +77,7 @@ class Login extends Component {
                 <div className="reg-container">
                     
                     <div className="align-input-fields">
-                    WELCOME<br/><br/>
+                    <br/><br/>
                     FIRST NAME <br/><input onChange={event=>{this.setState({firstName: event.target.value})}}/><br/><br/>
                     LAST NAME <br/> <input onChange={event=>{this.setState({lastName: event.target.value})}}/><br/><br/>
                     EMAIL <br/> <input type="email" onChange={event=>{this.setState({email: event.target.value})}}/><br/><br/>
@@ -83,7 +86,7 @@ class Login extends Component {
                     <br/><br/>
                     <div>
                     *Your info is safe with us.<br/>
-                        <button className="big-button" onClick={event=>{this.createUser(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
+                        <button className="big-button" onClick={event=>{this.register(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
                         <button className="small-button" onClick={event=>{this.setState({registered: true})}}>Login instead</button>
                     </div>
                 </div>
@@ -99,8 +102,10 @@ class Login extends Component {
 }
  
 
-const mapDispatchToProps = {
-    login: login
+const mapDispatchToProps = dispatch => {
+    return{
+        login: () => dispatch(login())
+    }
   }
 
 export default connect(null, mapDispatchToProps)(Login);

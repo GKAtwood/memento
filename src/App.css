@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Economica');
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 @import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel');
+@import url('https://fonts.googleapis.com/css?family=Cuprum');
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Federo');
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+@import url('https://fonts.googleapis.com/css?family=Marvel');
 
 @import "../node_modules/slick-carousel/slick/slick.css";
 @import "../node_modules/slick-carousel/slick/slick-theme.css";
@@ -33,7 +38,8 @@
 .App-title {
   text-align: left;
   font-size: 5em;
-  font-family: 'Economica', sans-serif;
+  font-weight: lighter;
+  font-family: 'Marvel', sans-serif;
   text-shadow: 2px 2px grey;
   cursor: default;
   margin: 10px;
@@ -43,7 +49,7 @@
   display: flex;
   justify-content:flex-end;
   align-items: center;
-  font-family: 'Satisfy', cursive;
+  font-family: 'Sacramento', cursive;
   font-size: 2em;
   margin: 10px;
 }
@@ -52,7 +58,7 @@
    background:transparent;
   -webkit-border-radius: 8;
   border-radius: 8px;
-  font-family: 'Economica', cursive;
+  font-family: 'Marvel', cursive;
   color: #cf5050;
   font-size: 1em;
   padding: 10px;
@@ -63,7 +69,7 @@
 
 .home-footer {
   display: flex;
-  font-family: 'Economica';
+  font-family: 'Marvel';
   font-size: 10px;
   color: grey;
   text-align: left;
@@ -101,9 +107,10 @@
 .login-title {
   color: white;
   padding: 50px;
+  font-weight: lighter;
   text-align: left;
   font-size: 4em;
-  font-family: 'Economica', sans-serif;
+  font-family: 'Marvel', sans-serif;
 }
 
 .login-title a {
@@ -199,4 +206,259 @@
     margin: 3px;
   }
 }
+
+.dashboard {
+  display: flex;
+  padding-left: 50px;
+  justify-content: space-between;
+}
+
+.dash-greeting {
+  background: white;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1.6em;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: rgb(100, 100, 100);
+  margin: 20px 0 20px 0;
+  cursor: default; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.all-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100px;  
+  padding-right: 20px;
+  border-radius: 10px;
+ 
+}
+
+.all-title {
+  background-image: -webkit-linear-gradient(top right,rgb(0,80,120) 25%, rgb(0,40,50)  60%, rgb(0,80,120) 70%);
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-align: right;
+  font-size: 3em;
+  font-family: 'Marvel', sans-serif;
+  
+}
+
+.all-title a {
+   color: #005078;
+}
+
+.prof-pic-small {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 20px;
+}
+.prof-pic-small img{
+  width: 100%;
+  height: 100%;
+}
+
+.user-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-family: 'Marvel', cursive;
+  color: rgb(100, 100, 100);
+  
+}
+
+.user-box img {
+  margin: 5px;
+  cursor: pointer;
+  width:30px;
+  height: 30px;
+}
+
+
+.add-box {
+  padding: 0 20px 0 0;
+  display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+
+
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+  align-content: flex-start;
+}
+
+.gallery-header h1{
+  font-family: 'Marvel', cursive;
+}
+
+.gallery-header h3{
+  font-family: Sacramento;
+  color: #cf5050;
+}
+
+.entry-holder{
+  background-color: #eeeeee;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  color: black;
+  font-family: 'Sacramento', cursive;
+  cursor: default;
+  box-shadow: 1px 1px 3px grey;
+  position: relative;
+}
+
+.entry-holder:hover {
+  box-shadow: 5px 10px 10px grey;
+  /* background-color: white; */
+  transform: scale(1.05);
+  transition: 0.25s ease-out;
+  -webkit-transition: .25s ease-out;
+  
+}
+
+
+.entry-holder a {
+  color: #ff6040 ;
+  font-family: sans-serif;
+  font-size: 12px;  
+}
+
+.entry-body {
+  background-color: white;
+  color: #333333;
+  font-family: Cambria,  Georgia,  serif;
+  font-size: 14px;
+  max-height:200px;
+  overflow: hidden;
+  margin: 10px 0 20px 0;
+  }
+
+.entry-body > img {
+  width: 100%;
+  cursor: default;
+}
+
+
+@media (max-width: 450px) {
+
+  .dashboard {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-left: 10px;
+    
+  }
+  .dash-greeting {
+    display: none;
+  }
+  .gallery-container {
+    width: 93%  
+  }
+  .all-header {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .user-box {
+    flex-direction: row;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h3 {
+    display: none;
+  }
+  .align-input-fields textarea {
+    width: 220px; 
+  }
+
+  .entry-holder {
+    box-shadow: 1px 1px 0 white;
+  
+    
+  }
+  .entry-holder a {
+    color: rgb(0,80,120) ;
+    /* font-family: sans-serif; */
+    font-size: 16px;  
+  }
+}
+
+.add-box {
+  padding: 0 20px 0 0;
+  display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.big-button {
+  margin: 10px;
+   background-image: linear-gradient(to bottom, #666666, #888888);
+  border-radius: 8px;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#journal-textbox {
+  width: 300px;
+  height: 200px;
+}
+
+.user-edit-page {
+  display: flex;
+  justify-content: flex-start; 
+}
+  .prof-pic-big {
+  border: 10px solid #eeeeee;
+  width: 200px;
+  max-height: max-content;
+  overflow: hidden;
+  margin-left: 50px;
+}
+.prof-pic-big img{
+  width: 100%;
+}
+.prof-pic-small {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 20px;
+}
+.prof-pic-small img{
+  width: 100%;
+}
+#user-deets {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 450px) {
+  .prof-pic-big {
+    margin-left: 10px;
+    border: 3px solid #eeeeee;
+    display: none;
+  }
+}
+
 

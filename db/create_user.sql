@@ -1,6 +1,6 @@
 INSERT INTO memento_users 
 (firstName, lastName, email, password)
 VALUES
-(${firstName}, ${lastName}, ${email})
+(${firstName},${lastName},${email},${password})
 
-RETURNING uid, firstName, lastName, email;
+RETURNING *;

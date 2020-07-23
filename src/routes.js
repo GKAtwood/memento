@@ -5,6 +5,7 @@ import Dashboard from './Components/Dashboard';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import Board from './Components/Board';
+import AddEntry from './Components/AddEntry'
 
 
 
@@ -15,6 +16,7 @@ export default function Routes(){
             <Route path = "/dashboard" component= {Dashboard} />
             <Route path = "/login" component={Login}/>
             <Route path = "/board" component={Board}/>
+            <Route path = "/addentry" component={AddEntry}/>
           
 
             

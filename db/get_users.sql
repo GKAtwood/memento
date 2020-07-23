@@ -1,0 +1,1 @@
+select uid, email from memento_user.;
