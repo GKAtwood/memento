@@ -19,7 +19,7 @@ module.exports= {
 
 
 
-        const newUser = await db.create_user({firstName, lastName, email, password});
+        const newUser = await db.create_user({firstName, lastName, email, password: hash});
         delete newUser[0].hash
                  // log user in by creating session
         req.session.user= {
@@ -40,17 +40,18 @@ module.exports= {
          // get info from req.body
             const { email,  password} = req.body;
 
-       
+                
             const foundUser = await db.check_user({email: email});
                 if(!foundUser[0]) return res.status(403).send('Email/Password incorrect')
 
 
         // compare hashes
-            const verified = await bcrypt.compare(password, foundUser[0].hash);
+            const verified = await bcrypt.compare(password, foundUser[0].password);
+            console.log('I got here')
                 if(!verified) return res.status(403).send('You shall not pass')
 
        
-        delete foundUser[0].hash;
+        delete foundUser[0].password;
         req.session.user= {
             ...foundUser[0]
         }

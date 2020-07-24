@@ -23,8 +23,8 @@ class Login extends Component {
         this.register=this.register.bind(this)
     }
 
-    login(email, password){
-        let user = {"email": email, "password": password}
+    login(){
+        let user = {email: this.state.email, password: this.state.password}
         axios.post('/api/memento/users/login', user).then(res=>{
                 this.props.login(res.data.user);
                 this.props.history.push('/dashboard');
@@ -104,7 +104,7 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => {
     return{
-        login: () => dispatch(login())
+        login: (user) => dispatch(login(user))
     }
   }
 

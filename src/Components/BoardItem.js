@@ -8,7 +8,7 @@ export default function BoardItem (props) {
                 <img src={props.item.urls.regular} alt={props.item.description}/>
             </div>
             <b>{props.item.description? props.item.description: props.item.user.location}</b><br/>
-            <small><a>{props.item.user.name}</a> on Unsplash</small>
+            <small><p>{props.item.user.name}</p> on Unsplash</small>
         </div>
     )
 }
