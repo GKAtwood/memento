@@ -5,7 +5,7 @@ image,
 journal,
 location, 
 year,
-  uid
+uid
   )VALUES(
 ${title},
 ${type},
