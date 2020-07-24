@@ -2,7 +2,8 @@ require('dotenv').config();
 const express =require('express')
 const massive = require('massive');
 const session = require('express-session');
-const ctrl = require('./controller/controller')
+const ctrl = require('./controller/controller');
+const { getAll } = require('./controller/controller');
 
 
 
@@ -31,11 +32,12 @@ app.use(session({
     }
   }))
 
-app.get('/api/memento/users', ctrl.getUser);
+app.get('/api/memento/users', ctrl.sessionCheck);
 app.post('/api/memento/users/login', ctrl.loginUser)
 app.post('/api/memento/users/create', ctrl.create)
 app.post('/api/memento/auth/logout', ctrl.logout)
 
+app.get('/api/memento/entries/get' , ctrl.getAll)
 app.post('/api/memento/entries/create', ctrl.createEntry)
 app.delete('/api/memento/entries/delete', ctrl.delete)
 

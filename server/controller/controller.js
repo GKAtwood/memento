@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 const saltRounds=12;
+const axios = require('axios');
+require('dotenv').config();
 
 
 
@@ -137,6 +139,12 @@ module.exports= {
         .catch(error=>{console.error(error);res.status(500).send(err)})
     },
 
+    getAll:(req, res, next) => {
+        console.log('getAll uid',req.query.uid)
+        const db = req.app.get('db') 
+        db.get_entries([req.query.uid]).then(entry=> res.status(200).send(entry)).catch(error=>{console.error(error);res.status(500).send(err)})
+        },
+
     delete: (req, res, next) => {
         const db = req.app.get('db')
         console.log('entry delete eid',req.params.eid)
@@ -157,19 +165,5 @@ module.exports= {
         },
 
    
-        createEntry:(req, res,next) => {
-            console.log('req.body', req.body)
-            const db = req.app.get('db')
-            db.create_entry
-            ([req.body.title, 
-                req.body.type,
-                req.body.image,
-                req.body.journal, 
-                req.body.location,
-                req.body.year,
-                req.body.uid]).then(entry=> {
-                res.status(200).send(entry)
-                console.log('entry', entry)
-            }).catch(error=>{console.error(error);res.status(500).send(error)})
-     },
+        
 }

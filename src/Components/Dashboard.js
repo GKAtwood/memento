@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Route, Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {login} from '../ducks/reducer'
 import Gallery from './Gallery';
 import UserEdit from './UserEdit';
 import Board from './Board';
@@ -46,14 +48,14 @@ class Dashboard extends Component{
 
 
    render(){
-      
+      console.log(this.props.user)
        return(
         <div className="dashboard">
                 
                 <main>
                 
                 <div className="dash-greeting">
-                    <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div> Ciao Bella!
+                    <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div> Ciao Bella !
                 </div>
                 <Route path='/dashboard/gallery' render={()=><Gallery />}/>
                 <Route path="/dashboard/board" component={Board}/>
@@ -76,4 +78,16 @@ class Dashboard extends Component{
     }
 }
 
-export default Dashboard
+const mapStateToProps = state => {
+    return {
+      user: state.user
+    }
+  }
+  const mapDispatchToProps = dispatch => {
+    return{
+        login: (user) => dispatch(login(user))
+    }
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

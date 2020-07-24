@@ -7,12 +7,13 @@ class AddEntry extends Component {
     constructor(props){
         super(props);
         this.state = {
+            
             type: this.props.match.params.type,
             title: '',
             image: '',
             journal: '',
             location: '',
-            year: 0,
+            year: 0
         };
         this.createEntry = this.createEntry.bind(this);
         this.findLoc = this.findLoc.bind(this);
@@ -20,8 +21,9 @@ class AddEntry extends Component {
 
 
     createEntry(title, image,journal,location,year){
-        // console.log(this.props.user.uid)
+        console.log(this.props.user.uid)
         const entry={
+           
             title: title,
             type: this.props.match.params.type,
             image: image,
@@ -39,24 +41,24 @@ class AddEntry extends Component {
         var output = document.getElementById("maps");
 
           if(navigator.geolocation) {        
-            var geosuccess = position => {
-                var latitude  = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                var x=''; 
+            let geosuccess = position => {
+                let latitude  = position.coords.latitude;
+                let longitude = position.coords.longitude;
+                let x=''; 
                 
                 
                 axios.post(`/api/memento/googles`, {latitude:latitude, longitude: longitude}).then(resp=>{
                     x=resp.data
-                    var y= x.address_components.findIndex(elem=>elem.types[0]==="country")
+                    let y = x.address_components.findIndex(elem=>elem.types[0]==="country")
                     console.log('country',x.address_components[y].long_name)
                     this.setState({location: x.address_components[y].long_name})
                     output.innerHTML = 'You are at '+ x.formatted_address+' </p>';
-                    var img = new Image();
+                    let img = new Image();
                     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=250x200&sensor=false";
                     output.appendChild(img);
                 }).catch(err=>{console.log(err)})
             }
-            var error=()=> {
+            let error=()=> {
                 output.innerHTML = "Unable to retrieve your location";
             }
             navigator.geolocation.getCurrentPosition(geosuccess, error);
@@ -67,7 +69,7 @@ class AddEntry extends Component {
     }
 
     render() {
-        
+        console.log(this.props)
 
         if (this.props.match.params.type==="photo") {
             return (
@@ -89,7 +91,7 @@ class AddEntry extends Component {
                 <div className="reg-container">
                     <div className="align-input-fields">
                         TITLE <br/><input onChange={(e)=>{this.setState({title:e.target.value})}}/><br/><br/>
-                        JOURNAL ENTRY <br/><textarea maxlength="1000" id="journal-textbox" onChange={(e)=>{this.setState({journal:e.target.value})}}> </textarea><br/><br/>
+                        JOURNAL ENTRY <br/><textarea  maxLength="1000" id="journal-textbox" onChange={(e)=>{this.setState({journal:e.target.value})}}> </textarea><br/><br/>
                         LOCATION (Country)<br/> <button className="small-button" onClick={this.findLoc}>Find Location</button><br/><br/>
                      
                         <div id="maps"></div><br/>
