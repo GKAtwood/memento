@@ -104,34 +104,14 @@ module.exports= {
         res.sendStatus(200);
     },
 
-    createEntry: (req, res) => {
-        const {
-            title = "untitled", 
-            type = "",
-            image,
-            journal = "", 
-            location ="",
-            year = "" 
-             } = req.body;
-
-        const db = req.app.get('db');
-        const eid = req.session.user.id;
-        
-        // massive's built-in insert method will return the post with its ID
-        db.create_entry({
-            title,
-            type,
-            image,
-            journal,
-            location,
-            year,
-            eid
-        }).then(newEntry => res.status(200).send(newEntry))
-            .catch(err => {
-                res.sendStatus(500)
-                console.error(err.message);
-        });
-    },
+    createEntry:(req, res,next) => {
+        console.log('req.body', req.body)
+        const db = req.app.get('db')
+        db.create_entry([req.body.title, req.body.type,req.body.image,req.body.journal, req.body.location,req.body.year,req.body.uid]).then(entry=> {
+            res.status(200).send(entry)
+            console.log('entry', entry)
+        }).catch(error=>{console.error(error);res.status(500).send(error)})
+        },
     update:(req, res, next) => {
         const db = req.app.get('db')
         db.update_entry([req.params.eid,req.body.title,req.body.type,req.body.image,req.body.location,req.body.year])

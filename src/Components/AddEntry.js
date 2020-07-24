@@ -16,7 +16,7 @@ class AddEntry extends Component {
             year: 0
         };
         this.createEntry = this.createEntry.bind(this);
-        this.findLoc = this.findLoc.bind(this);
+        // this.findLoc = this.findLoc.bind(this);
     }
 
 
@@ -32,44 +32,44 @@ class AddEntry extends Component {
             year: year,
             uid: this.props.user.uid
         }
-        axios.post('/api/memento/entries', entry).then(entry=>{
+        axios.post('/api/memento/entries/create', entry).then(entry=>{
             this.props.history.push('/dashboard/gallery');
         })
     }
 
-    findLoc(){
-        var output = document.getElementById("maps");
+    // findLoc(){
+    //     var output = document.getElementById("maps");
 
-          if(navigator.geolocation) {        
-            let geosuccess = position => {
-                let latitude  = position.coords.latitude;
-                let longitude = position.coords.longitude;
-                let x=''; 
+    //       if(navigator.geolocation) {        
+    //         let geosuccess = position => {
+    //             let latitude  = position.coords.latitude;
+    //             let longitude = position.coords.longitude;
+    //             let x=''; 
                 
                 
-                axios.post(`/api/memento/googles`, {latitude:latitude, longitude: longitude}).then(resp=>{
-                    x=resp.data
-                    let y = x.address_components.findIndex(elem=>elem.types[0]==="country")
-                    console.log('country',x.address_components[y].long_name)
-                    this.setState({location: x.address_components[y].long_name})
-                    output.innerHTML = 'You are at '+ x.formatted_address+' </p>';
-                    let img = new Image();
-                    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=250x200&sensor=false";
-                    output.appendChild(img);
-                }).catch(err=>{console.log(err)})
-            }
-            let error=()=> {
-                output.innerHTML = "Unable to retrieve your location";
-            }
-            navigator.geolocation.getCurrentPosition(geosuccess, error);
-        }
-        else {
-            output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-        }
-    }
+    //             axios.post(`/api/memento/googles`, {latitude:latitude, longitude: longitude}).then(resp=>{
+    //                 x=resp.data
+    //                 let y = x.address_components.findIndex(elem=>elem.types[0]==="country")
+    //                 console.log('country',x.address_components[y].long_name)
+    //                 this.setState({location: x.address_components[y].long_name})
+    //                 output.innerHTML = 'You are at '+ x.formatted_address+' </p>';
+    //                 let img = new Image();
+    //                 img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=250x200&sensor=false";
+    //                 output.appendChild(img);
+    //             }).catch(err=>{console.log(err)})
+    //         }
+    //         let error=()=> {
+    //             output.innerHTML = "Unable to retrieve your location";
+    //         }
+    //         navigator.geolocation.getCurrentPosition(geosuccess, error);
+    //     }
+    //     else {
+    //         output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+    //     }
+    // }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.user)
 
         if (this.props.match.params.type==="photo") {
             return (
@@ -78,7 +78,7 @@ class AddEntry extends Component {
                         TITLE<br/> <input onChange={(e)=>{this.setState({title:e.target.value})}}/><br/><br/>
                         IMAGE URL <br/><input onChange={(e)=>{this.setState({image:e.target.value})}}/> <br/><br/>
                         
-                        LOCATION (Country)<br/> <button className="small-button" onClick={this.findLoc}>Find Location</button><br/><br/>
+                        {/* LOCATION (Country)<br/> <button className="small-button" onClick={this.findLoc}>Find Location</button><br/><br/> */}
                        
                         <div id="maps"></div>
                         YEAR <br/><input  type="number" min="1000" max="2999" onChange={(e)=>{this.setState({year:e.target.value})}}/>
@@ -92,7 +92,7 @@ class AddEntry extends Component {
                     <div className="align-input-fields">
                         TITLE <br/><input onChange={(e)=>{this.setState({title:e.target.value})}}/><br/><br/>
                         JOURNAL ENTRY <br/><textarea  maxLength="1000" id="journal-textbox" onChange={(e)=>{this.setState({journal:e.target.value})}}> </textarea><br/><br/>
-                        LOCATION (Country)<br/> <button className="small-button" onClick={this.findLoc}>Find Location</button><br/><br/>
+                        {/* LOCATION (Country)<br/> <button className="small-button" onClick={this.findLoc}>Find Location</button><br/><br/> */}
                      
                         <div id="maps"></div><br/>
                         YEAR <br/><input type="number" min="1000" max="2999" onChange={(e)=>{this.setState({year:e.target.value})}}/>
