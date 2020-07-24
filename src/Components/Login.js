@@ -54,7 +54,7 @@ class Login extends Component {
     // }
 
     render() {
-        console.log(this.login)
+        
         return (
             <div className="App-login">
                 

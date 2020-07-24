@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+const saltRounds=12;
 
 
 
@@ -63,16 +64,35 @@ module.exports= {
 
     },
 
-    getUsers: async (req, res) => {
-        const db = req.app.get('db');
-        
-        const users = await db.get_users();
-        
-        res.status(200).send(users);
+    getUser: async (req, res) => {
+        const user = await req.app.get('db').get_user([req.session.user]);
+        return res.status(200).send(user);
+      },
+
+      updateUser: (req, res, next) => {
+        const dbInstance = req.app.get('db')
+        console.log(req.body)
+        bcrypt.hash(req.body.password, saltRounds).then(hashedPassword => {
+            dbInstance.edit_user([req.params.id,req.body.firstName,req.body.lastName,req.body.email,hashedPassword]).then(user=> {
+                console.log(hashedPassword)
+                req.session.user={
+                    uid: user[0].uid,
+                    firstName: user[0].firstname, 
+                    lastName: user[0].lastname, 
+                    email: user[0].email, 
+                    password: user[0].password
+                    
+                }
+                console.log('req.session', req.session.user)
+                res.status(200).json({user: req.session.user});             
+            }).catch(error=>{console.error(error);res.status(500).send(error)})
+        })
     },
 
 
-
+    sessionCheck: (req, res, next) => {
+        req.session.user ? res.status(200).send(req.session.user) : res.status(500).send()
+    },
                             
      
 
@@ -82,7 +102,7 @@ module.exports= {
         res.sendStatus(200);
     },
 
-    createPost: (req, res) => {
+    createEntry: (req, res) => {
         const {
             title = "untitled", 
             type = "",
@@ -124,4 +144,32 @@ module.exports= {
         .then(res=> res.status(200).send(resp))
         .catch(error=>{console.error(error);res.status(500).send(err)})
         },
+
+        latlong: (req, res, next) => {
+            console.log('google latlong', req.body.latitude,req.body.longitude)
+            axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_GOOGLE_KEY}&latlng=${req.body.latitude},${req.body.longitude}&language=en`).then(resp=>{
+                var x = resp.data.results.find(elem=>elem.address_components)
+                console.log('resp.data.results ', x)
+                res.status(200).send(x)
+            }).catch(err=>{
+                console.log('google error', err);res.status(500).send(err)
+            })
+        },
+
+   
+        createEntry:(req, res,next) => {
+            console.log('req.body', req.body)
+            const db = req.app.get('db')
+            db.create_entry
+            ([req.body.title, 
+                req.body.type,
+                req.body.image,
+                req.body.journal, 
+                req.body.location,
+                req.body.year,
+                req.body.uid]).then(entry=> {
+                res.status(200).send(entry)
+                console.log('entry', entry)
+            }).catch(error=>{console.error(error);res.status(500).send(error)})
+     },
 }

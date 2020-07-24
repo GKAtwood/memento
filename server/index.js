@@ -31,14 +31,15 @@ app.use(session({
     }
   }))
 
-
-
+app.get('/api/memento/users', ctrl.getUser);
 app.post('/api/memento/users/login', ctrl.loginUser)
 app.post('/api/memento/users/create', ctrl.create)
 app.post('/api/memento/auth/logout', ctrl.logout)
 
-app.post('/api/memento/entries/create', ctrl.createPost)
+app.post('/api/memento/entries/create', ctrl.createEntry)
 app.delete('/api/memento/entries/delete', ctrl.delete)
+
+app.post('/api/memento/googles', ctrl.latlong)
 
 
 
