@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+
 import axios from 'axios';
 import BoardItem from './BoardItem';
-
-
 
 export default class Board extends Component {
     constructor(){
@@ -15,29 +14,24 @@ export default class Board extends Component {
 
     componentDidMount(){
 
-        axios.get(`https://api.unsplash.com/photos/random?count=10`).then(res=>{
+        axios.get(`https://api.unsplash.com/photos/random?client_id=Vf4TsJcCO7cjlLSOMtBrVRpdVZakw9mKvRRc0oqqJqE&query=arts-culture&count=18`).then(resp=>{
         this.setState({
-            items: res.data
+            items: resp.data
            })
            console.log(this.state.entries)
-        }).catch(err=>console.log(err))
+        }).catch(error=>console.log(error))
   
     }
-
-    
    
 
     render() {
-      console.log(this.state)
+
         return (
-            <div className="board">
-            <h1>Get some Inspiration</h1>
-            <h3>Sometimes you will never know the value of a moment, until it becomes a memory.... - Dr. Seuss</h3>
-           
-           
-          
+            <div className = 'board'>
+            <h1>Get Inspired</h1>
+            <h3>Art is not what you see, but what you make others see.... - Edgar Degas</h3>
             <div className="gallery-container">
-                   <BoardItem/> 
+                    {this.state.items.map(item=><BoardItem key={item.id} item={item}/>)}
             </div>
             </div>
         )
