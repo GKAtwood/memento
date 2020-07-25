@@ -6,6 +6,8 @@
 @import url('https://fonts.googleapis.com/css?family=Federo');
 @import url('https://fonts.googleapis.com/css?family=Gugi');
 @import url('https://fonts.googleapis.com/css?family=Marvel');
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 
 @import "../node_modules/slick-carousel/slick/slick.css";
 @import "../node_modules/slick-carousel/slick/slick-theme.css";
@@ -307,7 +309,7 @@
 }
 
 .gallery-header h3{
-  font-family: Sacramento;
+  font-family: "Homemade Apple";
   color: #cf5050;
 }
 
@@ -317,7 +319,7 @@
   padding: 10px;
   width: 300px;
   color: black;
-  font-family: 'Sacramento', cursive;
+  font-family: 'Homemade Apple', cursive;
   cursor: default;
   box-shadow: 1px 1px 3px grey;
   position: relative;
@@ -468,7 +470,7 @@
 }
 
 .board h3{
-  font-family: 'Sacramento', cursive;
+  font-family: 'Homemade Apple', cursive;
   font-size: 21px;
   color: #cf5050;
 }
@@ -488,7 +490,7 @@
   padding: 10px;
   width: 300px;
   color: black;
-  font-family: 'Satisfy', cursive;
+  font-family: 'Caveat', cursive;
   cursor: default;
   box-shadow: 1px 1px 3px grey;
   position: relative;
