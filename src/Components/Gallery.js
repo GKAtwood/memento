@@ -5,7 +5,7 @@ export default class Gallery extends Component {
 
  
     render(props) {
-
+console.log(this.props)
         return (
             <div className = "gallery-header">
                 <h1>Your memories</h1>
@@ -16,7 +16,16 @@ export default class Gallery extends Component {
                 </div>
               
                 <div className="gallery-container">
-                   
+                <div className="entry-holder">
+            <div className="entry-body">
+                <b>Title</b>
+               <p>Entry</p>
+               <img src="https://images.unsplash.com/photo-1594991384727-e0e1dbf577bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt={props}/>
+            </div>
+            <c>Location</c>
+            <p>Year</p>
+           
+        </div>
                 </div>
             </div>
         )

@@ -7,6 +7,7 @@ import Gallery from './Gallery';
 import UserEdit from './UserEdit';
 import Board from './Board';
 import AddEntry from './AddEntry';
+import Connect from './Connect'
 
 
 
@@ -48,8 +49,8 @@ class Dashboard extends Component{
 
 
    render(){
-    console.log(this.props)
-    const {user} = this.props; 
+    console.log(this.props.user)
+    
        return(
         <div className="dashboard">
                 
@@ -58,10 +59,13 @@ class Dashboard extends Component{
                 <div className="dash-greeting">
                     <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div> Ciao Bella !
                 </div>
-                <Route path='/dashboard/gallery' render={()=><Gallery />}/>
+                <Route path='/dashboard/gallery' render={()=><Gallery entries={this.state.entries}/>}/>
                 <Route path="/dashboard/board" component={Board}/>
                 <Route path='/dashboard/addentry/:type' component={AddEntry}/>
                 <Route path='/dashboard/useredit' component={UserEdit}/>
+                <Route path="/dashboard/connect" component={Connect}/>
+               
+               
 
                 </main>
                 <aside className="all-header">

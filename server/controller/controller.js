@@ -50,7 +50,7 @@ module.exports= {
 
         // compare hashes
             const verified = await bcrypt.compare(password, foundUser[0].password);
-           
+            console.log('I got here')
                 if(!verified) return res.status(403).send('You shall not pass')
 
        
