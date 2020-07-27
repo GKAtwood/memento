@@ -63,7 +63,7 @@ class Dashboard extends Component{
                 <Route path="/dashboard/board" component={Board}/>
                 <Route path='/dashboard/addentry/:type' component={AddEntry}/>
                 <Route path='/dashboard/useredit' component={UserEdit}/>
-                <Route path="/dashboard/connect" component={Connect}/>
+                <Route path="/dashboard/connect" component={Connect} entries={this.state.entries}/>
                
                
 

@@ -71,25 +71,7 @@ module.exports= {
         return res.status(200).send(user);
       },
 
-      updateUser: (req, res, next) => {
-        const dbInstance = req.app.get('db')
-        console.log(req.body)
-        bcrypt.hash(req.body.password, saltRounds).then(hashedPassword => {
-            dbInstance.edit_user([req.params.id,req.body.firstName,req.body.lastName,req.body.email,hashedPassword]).then(user=> {
-                console.log(hashedPassword)
-                req.session.user={
-                    uid: user[0].uid,
-                    firstName: user[0].firstname, 
-                    lastName: user[0].lastname, 
-                    email: user[0].email, 
-                    password: user[0].password
-                    
-                }
-                console.log('req.session', req.session.user)
-                res.status(200).json({user: req.session.user});             
-            }).catch(error=>{console.error(error);res.status(500).send(error)})
-        })
-    },
+     
 
 
     sessionCheck: (req, res, next) => {
@@ -141,6 +123,27 @@ module.exports= {
                 res.status(200).send(x)
             }).catch(err=>{
                 console.log('google error', err);res.status(500).send(err)
+            })
+        },
+
+        editUser: (req, res, next) => {
+            const db = req.app.get('db')
+            console.log(req.body)
+             bcrypt.hash(req.body.password, 10).then(password => {
+                db.edit_user([req.params.id,req.body.firstName,req.body.lastName,req.body.email,password])
+                .then(user=> {
+                    console.log(password)
+                    req.session.user={
+                        uid: user[0].uid,
+                        firstName: user[0].firstName, 
+                        lastName: user[0].lastName, 
+                        email: user[0].email, 
+                        password: user[0].password
+                        
+                    }
+                    console.log('req.session', req.session.user)
+                    res.status(200).json({user: req.session.user});             
+                }).catch(err=>{console.error(err);res.status(500).send(err)})
             })
         },
 

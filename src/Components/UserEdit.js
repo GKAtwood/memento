@@ -11,7 +11,7 @@ class UserEdit extends Component {
         super();
         this.state = {
             firstName: '',
-            lasteName: '',
+            lastName: '',
             email: '',
             password: '',
             
@@ -21,16 +21,16 @@ class UserEdit extends Component {
             dd: false,
             
         };
-        this.edit=this.edit.bind(this)
+        this.editUser=this.editUser.bind(this)
     }
 
-    edit(firstName, lastName, email, password, pic){
-        var user = {firstName:firstName||this.props.user.firstName, lastName:lastName||this.props.user.lastName, email: email||this.props.user.email, password:password||this.props.user.password, pic:pic||this.props.user.pic}
-        axios.put(`/api/memento/users/${this.props.user.uid}`, user).then(res=>{
+    editUser(firstName, lastName, email, password, pic){
+        let user = {firstName:firstName||this.props.user.firstName, lastName:lastName||this.props.user.lastName, email: email||this.props.user.email, password:password||this.props.user.password}
+        axios.put(`/api.memento/users/update/:id${this.props.user.uid}`, user).then(res=>{
                 this.props.login(res.data.user);
                 this.browser.history.push('/dashboard/gallery');
-            }).catch(error=>{
-                console.log(error)
+            }).catch(err=>{
+                console.log(err)
             })
     }
 
@@ -63,7 +63,7 @@ class UserEdit extends Component {
                     <input type="password"  onChange={event=>{this.setState({password: event.target.value})}}/>}<br/><br/>
 
                     *Don't worry we won't share your info.<br/>
-                        <button className="big-button" onClick={event=>{this.edit(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
+                        <button className="big-button" onClick={event=>{this.editUser(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
                     </div>
                 </div>
 

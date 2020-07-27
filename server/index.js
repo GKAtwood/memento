@@ -36,6 +36,7 @@ app.get('/api/memento/users', ctrl.sessionCheck);
 app.post('/api/memento/users/login', ctrl.loginUser)
 app.post('/api/memento/users/create', ctrl.create)
 app.post('/api/memento/auth/logout', ctrl.logout)
+app.put('/api.memento/users/update/:id', ctrl.editUser) 
 
 app.get('/api/memento/entries/get' , ctrl.getAll)
 app.post('/api/memento/entries/create', ctrl.createEntry)

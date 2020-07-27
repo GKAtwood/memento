@@ -1,32 +1,42 @@
-import React, { Component } from 'react';
-
-import axios from 'axios';
+import React, {useState} from 'react';
 
 
+export default props => {
+    
+
+    return(
+        <div className='board'>
+        <h1>What inspires you?</h1>
+        <h3>Share on social media</h3>
+
+        </div>
+    )
+}
 
 
-export default class Connect extends Component {
-    constructor(){
-        super();
-        this.state = {
-            entries: [],
+
+// function Connect
+//     constructor(props){
+//         super(props);
+//         this.state = {
+//             entries: [],
             
-            };  
+//             };  
         
-        };
+//         };
     
 
  
     
 
-    render() {
-
-        return (
-            <div>
-                <div className='board'>
-                    <h1>What inspires you?</h1>
-                    <h3>Share on social media</h3>
-                    
-                </div>
-               </div>
-        )}}
+//     render() {
+// console.log(this.props)
+//         return (
+//             <div>
+//                 <div className='board'>
+//                     <h1>What inspires you?</h1>
+//                     <h3>Share on social media</h3>
+                  
+//                 </div>
+//                </div>
+//         )}}
