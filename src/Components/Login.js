@@ -93,7 +93,7 @@ class Login extends Component {
                 }
                 </div>
                 <header className="login-header">
-                    <div className="login-title"><Link to='/'><b><b>Memento</b></b></Link></div>
+                    <div className="login-title"><Link to='/'><b>Memento</b></Link></div>
                 </header>
                 
             </div>
