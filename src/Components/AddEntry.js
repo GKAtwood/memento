@@ -40,7 +40,7 @@ class AddEntry extends Component {
  
 
     render() {
-        console.log(this.props.user)
+        console.log(this.props)
 
         if (this.props.match.params.type==="photo") {
             return (
