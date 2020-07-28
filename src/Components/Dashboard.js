@@ -15,7 +15,7 @@ class Dashboard extends Component{
     constructor(){
         super();
         this.state = {
-            entries: {},
+            entries: [],
             };  
         this.logout=this.logout.bind(this)
         };

@@ -1,18 +1,18 @@
 INSERT INTO memento_entries 
-(title, 
-type, 
+(type, 
+title, 
 image, 
 journal,
 location, 
 year,
 uid
   )VALUES(
-${title},
 ${type},
+${title},
 ${image},
 ${journal},
 ${location},
 ${year},
 ${uid}
 )
-RETURNING eid, title, type, journal, location, year, uid ;
+RETURNING eid, type, title, journal, location, year, uid ;

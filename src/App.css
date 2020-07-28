@@ -355,7 +355,6 @@
 
 .entry-holder:hover {
   box-shadow: 5px 10px 10px grey;
-  
   transform: scale(1.05);
   transition: 0.25s ease-out;
   -webkit-transition: .25s ease-out;
@@ -372,7 +371,7 @@
 .entry-body {
   background-color: white;
   color: #333333;
-  font-family: Cambria,  Georgia,  serif;
+  font-family: 'Caveat';
   font-size: 14px;
   max-height:200px;
   overflow: hidden;
@@ -430,14 +429,12 @@
   }
   .entry-holder a {
     color: #23314b(0,80,120) ;
-  
     font-size: 16px;  
   }
 }
 
 .entry-holder c {
   color: #23314b(0,80,120) ;
-
   font-size: 16px;  
 }
 
@@ -538,7 +535,7 @@
 
 .entry-holder:hover {
   box-shadow: 5px 10px 10px grey;
-  /* background-color: white; */
+  
   transform: scale(1.05);
   transition: 0.25s ease-out;
   -webkit-transition: .25s ease-out;
@@ -552,15 +549,7 @@
   font-size: 12px;  
 }
 
-.entry-body {
-  background-color: white;
-  color: #333333;
-  font-family: Cambria,  Georgia,  serif;
-  font-size: 14px;
-  max-height:200px;
-  overflow: hidden;
-  margin: 10px 0 20px 0;
-  }
+
 
 .entry-body > img {
   width: 100%;

@@ -50,7 +50,7 @@ module.exports= {
 
         // compare hashes
             const verified = await bcrypt.compare(password, foundUser[0].password);
-            console.log('I got here')
+           
                 if(!verified) return res.status(403).send('You shall not pass')
 
        
@@ -89,11 +89,17 @@ module.exports= {
     createEntry:(req, res,next) => {
         console.log('req.body', req.body)
         const db = req.app.get('db')
-        db.create_entry([req.body.title, req.body.type,req.body.image,req.body.journal, req.body.location,req.body.year,req.body.uid]).then(entry=> {
+        
+        db.create_entry([req.body.type, req.body.title,req.body.image,req.body.journal, req.body.location,req.body.year,req.body.uid])
+        .then(entry=> {
+            console.log("got to this point")
             res.status(200).send(entry)
-            console.log('entry', entry)
+            console.log('entry', entry) 
         }).catch(error=>{console.error(error);res.status(500).send(error)})
         },
+
+
+
     update:(req, res, next) => {
         const db = req.app.get('db')
         db.update_entry([req.params.eid,req.body.title,req.body.type,req.body.image,req.body.location,req.body.year])
