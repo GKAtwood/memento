@@ -244,6 +244,11 @@
   align-items: center;
 }
 
+.greeting h4{
+  font-family: 'Caveat';
+  font-size: 15px;
+}
+
 .all-header {
   display: flex;
   flex-direction: column;
