@@ -22,6 +22,8 @@ class Dashboard extends Component{
         this.logout=this.logout.bind(this)
         };
 
+   
+
         componentDidMount(){
             axios.get('/api/memento/users').then(res=>{
                 this.props.login(res.data);
@@ -38,6 +40,11 @@ class Dashboard extends Component{
             })
           
         }
+
+      
+
+        
+     
     
         logout() {
             // axios GET to /auth/logout here
@@ -52,16 +59,7 @@ class Dashboard extends Component{
 
 
    render(){
-     
-    console.log(this.props.user)
-    // const {user} = this.props
-    // let {isLoggedIn} = this.state
-    // const greeting = isLoggedIn
-    // ? `Ciao Bella!`
-    // : 'Hello Stranger'
-
-  
-    
+ 
     return(
         <div className="dashboard">
                 
@@ -91,8 +89,8 @@ class Dashboard extends Component{
                 </aside>
             </div>
         )
-    }
-}
+    }}
+
 
 const mapStateToProps = state => {
     return {
@@ -102,6 +100,7 @@ const mapStateToProps = state => {
   const mapDispatchToProps = dispatch => {
     return{
         login: (user) => dispatch(login(user))
+    
     }
   }
 

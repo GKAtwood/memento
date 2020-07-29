@@ -11,13 +11,10 @@ export default props => {
             clearInterval(id);
         }
     }, []);
-    
-      
 
  
-
-    console.log(props)
-    let now = new Date();
+    
+     let now = new Date();
     let hrs = now.getHours();
     let msg = "";
 
@@ -30,9 +27,10 @@ if (hrs > 22) msg = "Go to bed!";
 
  
     return(
+        
         <div className ='greeting'>
         
-         {msg}<br/><br/>
+         {msg}{props.firstname}<br/><br/>
         <h4>Today is {`${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString()}`}</h4>
    
         </div>
