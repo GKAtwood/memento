@@ -9,7 +9,7 @@ export default class Gallery extends Component {
 console.log(this.props)
         return (
             <div className = "gallery-header">
-                <h1>Your mementos</h1>
+                <h1>Your memories</h1>
                 <h3>Kind of girly with a little bit of edge</h3>
                 <div className="add-box">
                     <Link to="/dashboard/addentry/photo"><button className="big-button">+ photo</button></Link>
