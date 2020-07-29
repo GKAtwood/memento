@@ -16,6 +16,7 @@ class Dashboard extends Component{
         super();
         this.state = {
             entries: [],
+            isLoggedIn: true
             };  
         this.logout=this.logout.bind(this)
         };
@@ -34,6 +35,7 @@ class Dashboard extends Component{
                 this.setState({entries: []})
                 this.props.history.push('/login')
             })
+          
         }
     
         logout() {
@@ -49,23 +51,29 @@ class Dashboard extends Component{
 
 
    render(){
+      
     console.log(this.props.user)
-    const {user} = this.props; 
+    const {user} = this.props
+    let {isLoggedIn} = this.state
+    const greeting = isLoggedIn
+    ? `Ciao Bella!`
+    : 'Hello Stranger'
 
+  
     
-       return(
+    return(
         <div className="dashboard">
                 
                 <main>
                 
                 <div className="dash-greeting">
-                    <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div> Ciao 
+                    <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div> {greeting}
                 </div>
                 <Route path='/dashboard/gallery' render={()=><Gallery entries={this.state.entries}/>}/>
                 <Route path="/dashboard/board" component={Board}/>
                 <Route path='/dashboard/addentry/:type' component={AddEntry}/>
                 <Route path='/dashboard/useredit' component={UserEdit}/>
-                <Route path="/dashboard/connect" component={Connect} entries={this.state.entries}/>
+                <Route path="/dashboard/connect" render={()=><Connect entries={this.state.entries}/>}/>
                
                
 
