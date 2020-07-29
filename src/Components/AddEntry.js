@@ -59,7 +59,7 @@ class AddEntry extends Component {
                 <div className="reg-container">
                     <div className="align-input-fields">
                         TITLE <br/><input onChange={(e)=>{this.setState({title:e.target.value})}}/><br/><br/>
-                        JOURNAL ENTRY <br/><textarea  maxLength="1000" id="journal-textbox" onChange={(e)=>{this.setState({journal:e.target.value})}}> </textarea><br/><br/>
+                        JOURNAL ENTRY <br/><textarea  maxLength="1000" id="journal-textbox" onChange={(e)=>{this.setState({journal:e.target.value})}}/><br/><br/>
                         LOCATION<br/><input onChange={(e)=>{this.setState({location:e.target.value})}}/><br/><br/>
                         YEAR <br/><input type="number" min="1969" max="2999" onChange={(e)=>{this.setState({year:e.target.value})}}/>
                     </div><br/><br/>

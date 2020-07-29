@@ -90,7 +90,7 @@ module.exports= {
         console.log('req.body', req.body)
         const db = req.app.get('db')
         
-        db.create_entry([req.body.type, req.body.title,req.body.image,req.body.journal, req.body.location,req.body.year,req.body.uid])
+        db.create_entry({type:req.body.type, title:req.body.title, image:req.body.image, journal:req.body.journal, location:req.body.location, year:req.body.year, uid:req.body.uid})
         .then(entry=> {
             console.log("got to this point")
             res.status(200).send(entry)
