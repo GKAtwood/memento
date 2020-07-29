@@ -24,6 +24,7 @@
     "react-s3-uploader": "^4.9.3",
     "react-scripts": "3.4.1",
     "react-share": "^4.2.1",
+    "react-share-button": "0.0.4",
     "react-slick": "^0.27.0",
     "redux": "^4.0.5",
     "redux-promise-middleware": "^6.1.2",
