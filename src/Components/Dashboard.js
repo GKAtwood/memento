@@ -32,8 +32,8 @@ class Dashboard extends Component{
                         entries: resp.data
                        })
                        console.log(this.state.entries)
-                    }).catch(error=>console.log(error))
-            }).catch(error=>{
+                    }).catch(err=>console.log(err))
+            }).catch(err=>{
                 console.log('session does not exist', this.state.isLoggedIn);
                 this.setState({entries: []})
                 this.props.history.push('/login')

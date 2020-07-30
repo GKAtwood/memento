@@ -35,7 +35,7 @@ class UserEdit extends Component {
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props.user)
         return (
             <div className="user-edit-page">
 
