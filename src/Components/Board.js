@@ -14,7 +14,7 @@ export default class Board extends Component {
 
     componentDidMount(){
 
-        axios.get(`https://api.unsplash.com/photos/random?client_id=Vf4TsJcCO7cjlLSOMtBrVRpdVZakw9mKvRRc0oqqJqE&query=experimental&count=18`).then(resp=>{
+        axios.get(`https://api.unsplash.com/photos/random?client_id=Vf4TsJcCO7cjlLSOMtBrVRpdVZakw9mKvRRc0oqqJqE&query=experimental&count=20`).then(resp=>{
         this.setState({
             items: resp.data
            })

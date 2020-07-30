@@ -10,7 +10,7 @@ export default class GalleryItem extends Component {
                 <div className="entry-body">
                     <img src={this.props.entry.image} alt={this.props.entry.title}/>
                 </div>
-                <b>{this.props.entry.title}</b><br/>
+                <c>{this.props.entry.title}</c><br/>
                 {this.props.entry.location}, {this.props.entry.year} 
                 </div></Link>
         :
@@ -18,7 +18,7 @@ export default class GalleryItem extends Component {
                 <div className="entry-body">
                     {this.props.entry.journal.substr(0,400)}
                 </div>
-                <b>{this.props.entry.title}</b><br/>
+                <c>{this.props.entry.title}</c><br/>
                 {this.props.entry.location}, {this.props.entry.year} 
             </div></Link>)
         
