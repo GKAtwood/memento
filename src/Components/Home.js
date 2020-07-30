@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import SocialFollow from './SocialFollow';
 
 
 class Home extends Component {
@@ -18,7 +19,9 @@ class Home extends Component {
             </div>
           </header>
           <footer className="home-footer">
-            Gabi Atwood @DevMountain Full Stack Immersive Personal Project<br/>
+            Gabi Atwood @DevMountain Full Stack Immersive Personal Project<br/><br></br>
+            <SocialFollow/>
+            
                  </footer>
           
   

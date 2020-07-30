@@ -3,7 +3,8 @@ const express =require('express')
 const massive = require('massive');
 const session = require('express-session');
 const ctrl = require('./controller/controller');
-const { getAll } = require('./controller/controller');
+
+
 
 
 

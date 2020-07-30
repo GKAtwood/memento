@@ -14,7 +14,7 @@ export default props => {
 
  
     
-     let now = new Date();
+    let now = new Date();
     let hrs = now.getHours();
     let msg = "";
 
