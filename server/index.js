@@ -43,7 +43,7 @@ app.get('/api/memento/entries/get' , ctrl.getAll)
 app.post('/api/memento/entries/create', ctrl.createEntry)
 app.delete('/api/memento/entries/delete', ctrl.delete)
 
-app.post('/api/memento/googles', ctrl.latlong)
+
 
 
 
