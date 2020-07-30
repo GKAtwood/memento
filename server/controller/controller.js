@@ -79,11 +79,14 @@ module.exports= {
     },
                             
      
-
-    logout: (req, res) => {
-        //logout clears out the session of user data
-        req.session.destroy();
-        res.sendStatus(200);
+    logout: (req, res, next) => {
+        if (req.session.user)
+        {
+            console.log('before destroying', req.session)
+            req.session.destroy();
+            console.log('after destroying', req.session)
+            res.status(200).send()  
+        }     
     },
 
     createEntry:(req, res,next) => {
