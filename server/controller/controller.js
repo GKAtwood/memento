@@ -107,8 +107,19 @@ module.exports= {
     getAll:(req, res, next) => {
         console.log('getAll uid',req.query.uid)
         const db = req.app.get('db') 
-        db.get_entries([req.query.uid]).then(entry=> res.status(200).send(entry)).catch(error=>{console.error(error);res.status(500).send(err)})
+        db.get_entries([req.query.uid])
+        .then(entry=> res.status(200).send(entry))
+        .catch(err=>{console.error(error);res.status(500).send(err)})
         },
+
+        getOne:(req, res, next) => {
+            console.log('getOne eid', req.params.eid)
+            const db = req.app.get('db')
+            console.log('req.params', req.params.eid)
+            db.get_entry([req.params.eid])
+            .then(entry=> res.status(200).send(entry[0]))
+            .catch(err=>{console.error(error);res.status(500).send(err)})
+            },
 
     delete: (req, res, next) => {
         const db = req.app.get('db')

@@ -47,11 +47,7 @@ class Login extends Component {
             })
     }
 
-    // componentDidMount(){
-    //     axios.get('/api/memento/users').then(res=>{
-    //     this.props.history.push('/dashboard')
-    //     })
-    // }
+
 
     render() {
         

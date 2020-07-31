@@ -1,0 +1,11 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$fontsize: 15px;
+
+
+
+greeting 
+     h4
+        font: 100% $font-stack
+        font-size: $fontsize
+        color: $primary-color

@@ -236,7 +236,7 @@
   padding-left: 20px;
   font-size: 1.6em;
   font-family: 'Trebuchet MS', sans-serif;
-  color: rgb(100, 100, 100);
+  color: rgb(7, 7, 7);
   margin: 20px 0 20px 0;
   cursor: default; 
   display: flex;
@@ -325,6 +325,7 @@
 	justify-content: flex-start;
 	align-items: flex-start;
   align-content: flex-start;
+  text-decoration: none !important;
  
 }
 
@@ -334,6 +335,7 @@
 	justify-content: flex-start;
 	align-items: flex-start;
   align-content: flex-start;
+  text-decoration: none !important;
  
 }
 
@@ -431,7 +433,7 @@
 
 }
 
-.gallery-container {
+/* .gallery-container {
   display: flex;
   flex-wrap: wrap;
 	justify-content: flex-start;
@@ -440,7 +442,7 @@
   text-decoration: none;
   
   
-}
+} */
 
 
 
@@ -562,16 +564,17 @@ a.instagram {
   cursor: pointer;
   box-shadow: 1px 1px 3px grey;
   position: relative;
-  text-decoration: none;
+  text-decoration: none !important;
+  border:none;
 }
 
 .entry-holder:hover {
   box-shadow: 5px 10px 10px grey;
-  
   transform: scale(1.05);
   transition: 0.25s ease-out;
   -webkit-transition: .25s ease-out;
-  text-decoration: none;
+  text-decoration: none !important;
+  
   
   
 }
@@ -584,6 +587,8 @@ a.instagram {
   font-size: 12px;  
   text-decoration: none;
   font-family: 'Caveat', cursive;
+  text-decoration: none !important;
+  
  
 
 }
@@ -591,16 +596,17 @@ a.instagram {
 .entry-body b{
   color: black;
   font-family: 'Caveat', cursive;
-  text-decoration: none;
+  text-decoration: none !important;
+  
  
 }
 
-.entry-holder c {
+.entry-holder p {
   color: #ff6040 ;
   font-family: sans-serif;
   font-size: 18px;  
   font-family: 'Caveat', cursive;
-  text-decoration: none;
+  text-decoration: none !important;
 
 }
 
@@ -622,10 +628,12 @@ a.instagram {
   color: #333333;
   font-family: 'Caveat';
   font-size: 14px;
-  max-height:200px;
-  overflow: hidden;
-  margin: 10px 0 20px 0;
+  max-height: 300px;
+   margin: 10px 0 20px 0;
   text-decoration: none;
+  ;
+  text-decoration: none !important;
+  
  
   }
 
@@ -679,6 +687,81 @@ a.instagram {
     text-decoration: none;
   }
 }
+
+
+
+
+
+
+.Viewer {
+  margin: 30px;
+  /* max-width: 900px; */
+  padding-right: 30px;
+}
+ h1{
+  font-family: 'Economica', sans-serif;
+  color: rgb(0,80,120); 
+}
+ h3{
+  font-family: 'Satisfy', cursive;
+  color: #ff6040;
+}
+.Viewer p{
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+#mob123 {
+  display: none;
+}
+
+#bigger-image {
+  margin: auto;
+  padding: 10px;
+  background: #eeeeee;
+}
+#bigger-image img {
+  width: 100%;
+  max-width: 1200px;
+  max-height: 800px
+}
+
+#close-delete {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+#entry-delete {
+  color: red;
+  cursor: pointer;
+  font-family: 'Trebuchet MS',  sans-serif;
+  border-style: inset;
+  border: rgb(7, 7, 7);
+}
+#entry-delete a {
+  color: rgb(0,80,120);
+  cursor: pointer;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+@media (max-width: 450px) {
+  #bigger-image {
+    height: 100%;
+    padding: 0;
+  }
+  #close-delete {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  #entry-delete {
+    background: white;
+    margin-bottom: 3px;
+  }
+  #mob123 {
+    display: block;
+    font-family: 'Satisfy', cursive;
+    font-size: 16px;
+    color: rgb(0,80,120);
+  }
+}
+
 
 
 

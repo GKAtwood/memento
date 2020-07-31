@@ -9,6 +9,7 @@ import Board from './Board';
 import AddEntry from './AddEntry';
 import Connect from './Connect'
 import Greeting from './Greeting'
+import Viewer from './Viewer'
 
 
 
@@ -69,6 +70,7 @@ class Dashboard extends Component{
                 <Route path='/dashboard/gallery' render={()=><Gallery entries={this.state.entries}/>}/>
                 <Route path="/dashboard/board" component={Board}/>
                 <Route path='/dashboard/addentry/:type' component={AddEntry}/>
+                <Route path='/dashboard/viewer/:eid' component={Viewer}/>
                 <Route path='/dashboard/useredit' component={UserEdit}/>
                 <Route path="/dashboard/share" render={()=><Connect entries={this.state.entries}/>}/>
                

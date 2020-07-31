@@ -1,1 +1,2 @@
-DELETE FROM memento_entries WHERE eid = $1 RETURNING *;
+DELETE FROM memento_entries WHERE eid = ${eid}
+RETURNING *;
