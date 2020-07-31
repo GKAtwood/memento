@@ -19,9 +19,9 @@ class Home extends Component {
             </div>
           </header>
           <footer className="home-footer">
-            Gabi Atwood @DevMountain Full Stack Immersive Personal Project<br/><br></br>
+            Gabi Atwood @DevMountain Full Stack Personal Project<br/><br></br>
             <SocialFollow/>
-            
+             
                  </footer>
           
   

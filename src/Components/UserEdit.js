@@ -26,9 +26,9 @@ class UserEdit extends Component {
 
     editUser(firstName, lastName, email, password){
         let user = {firstName:firstName||this.props.user.firstName, lastName:lastName||this.props.user.lastName, email: email||this.props.user.email, password:password||this.props.user.password}
-        axios.put(`/api.memento/users/update/:uid${this.props.user.uid}`, user).then(res=>{
+        axios.put(`/api.memento/users/update/${this.props.user.uid}`, user).then(res=>{
                 this.props.login(res.data.user);
-                this.browser.history.push('/dashboard/gallery');
+                this.props.history.push('/dashboard/gallery');
             }).catch(err=>{
                 console.log(err)
             })
