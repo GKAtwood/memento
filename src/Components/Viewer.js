@@ -37,7 +37,7 @@ console.log(this.state.entry)
                 <div id="close-delete">
                     <div id="entry-delete"><Link to="/dashboard/gallery">Close</Link></div>
                     <div id="entry-delete" onClick={event=>{
-                    axios.delete(`/api/memento/entries/${this.state.entry.eid}`).then(res=>{console.log('deleted');this.props.history.push('/dashboard/gallery')}).catch(err=>{console.log(err)})}
+                    axios.delete(`/api/memento/entries/delete/${this.state.entry.eid}`).then(res=>{console.log('deleted');this.props.history.push('/dashboard/gallery')}).catch(err=>{console.log(err)})}
                     }>Delete this entry</div>
                 </div>
             </div>

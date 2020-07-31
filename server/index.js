@@ -42,7 +42,7 @@ app.put('/api.memento/users/update/:uid', ctrl.editUser)
 app.get('/api/memento/entries/get' , ctrl.getAll)
 app.post('/api/memento/entries/create', ctrl.createEntry)
 app.delete('/api/memento/entries/delete', ctrl.delete)
-app.get(`/api/memento/entries/get/:eid`, ctrl.getOne);
+app.get('/api/memento/entries/get/:eid', ctrl.getOne);
 
 
 

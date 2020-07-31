@@ -630,8 +630,7 @@ a.instagram {
   font-size: 14px;
   max-height: 300px;
    margin: 10px 0 20px 0;
-  text-decoration: none;
-  ;
+  overflow: hidden;
   text-decoration: none !important;
   
  
