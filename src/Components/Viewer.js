@@ -24,7 +24,7 @@ export default class Viewer extends Component {
     
 
     render() {
-console.log(this.state.entry)
+console.log(this.state)
         return (
             <div className="Viewer">
                 <h1>{this.state.entry.title}</h1>

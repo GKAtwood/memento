@@ -9,8 +9,7 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat');
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 
-@import "../node_modules/slick-carousel/slick/slick.css";
-@import "../node_modules/slick-carousel/slick/slick-theme.css";
+
 
 
 
@@ -169,7 +168,7 @@
 
 .big-button {
   margin: 10px;
-   /* background-image: linear-gradient(to bottom, #666666, #888888); */
+  
    background: black;
   border-radius: 8px;
   font-family: 'Trebuchet MS', sans-serif;
@@ -433,16 +432,7 @@
 
 }
 
-/* .gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-  align-content: flex-start;
-  text-decoration: none;
-  
-  
-} */
+
 
 
 
@@ -475,8 +465,7 @@
 }
 .connect-sub {
   display: flex;
-
-	flex-wrap: wrap;
+  flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start;
   align-content: flex-start;
@@ -593,6 +582,20 @@ a.instagram {
 
 }
 
+.entry-body {
+  background-color: white;
+  color: #333333;
+  font-family: 'Caveat';
+  font-size: 14px;
+  max-height: 300px;
+   margin: 10px 0 20px 0;
+  overflow: hidden;
+  text-decoration: none !important;
+  
+ 
+  }
+
+
 .entry-body b{
   color: black;
   font-family: 'Caveat', cursive;
@@ -623,18 +626,6 @@ a.instagram {
 
 
 
-.entry-body {
-  background-color: white;
-  color: #333333;
-  font-family: 'Caveat';
-  font-size: 14px;
-  max-height: 300px;
-   margin: 10px 0 20px 0;
-  overflow: hidden;
-  text-decoration: none !important;
-  
- 
-  }
 
 
 
@@ -694,12 +685,11 @@ a.instagram {
 
 .Viewer {
   margin: 30px;
-  /* max-width: 900px; */
   padding-right: 30px;
 }
  h1{
-  font-family: 'Economica', sans-serif;
-  color: rgb(0,80,120); 
+  font-family: 'Marvel', sans-serif;
+  color:black; 
 }
  h3{
   font-family: 'Satisfy', cursive;

@@ -117,8 +117,9 @@ module.exports= {
             const db = req.app.get('db')
             console.log('req.params', req.params.eid)
             db.get_entry([req.params.eid])
+            console.log('got one entry')
             .then(entry=> res.status(200).send(entry[0]))
-            .catch(err=>{console.error(error);res.status(500).send(err)})
+            .catch(err=>{console.error(err);res.status(500).send(err)})
             },
 
     delete: (req, res, next) => {
@@ -126,7 +127,7 @@ module.exports= {
         console.log('entry delete eid',req.params.eid)
         db.delete_entry([req.params.eid])
         .then(res=> res.status(200).send(resp))
-        .catch(error=>{console.error(error);res.status(500).send(err)})
+        .catch(err=>{console.error(err);res.status(500).send(err)})
         },
 
     

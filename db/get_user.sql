@@ -1,1 +1,2 @@
-SELECT * FROM memento_users WHERE email = ${email};
+SELECT * FROM memento_users 
+WHERE email = ${email};

@@ -1,2 +1,3 @@
-SELECT * FROM memento_entries
-WHERE uid =${uid};
+SELECT * FROM memento_entries 
+WHERE eid = ${eid};
+
