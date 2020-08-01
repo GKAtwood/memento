@@ -32,7 +32,7 @@ if (hrs > 22) msg = "Go to bed!";
         
         <div className ='greeting'>
         
-         {msg}{props.firstname}<br/><br/>
+         {msg}<br/><br/>
         <h4>Today is {`${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString()}`}</h4>
    
         </div>
