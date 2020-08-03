@@ -58,6 +58,7 @@ class Dashboard extends Component{
 
 
    render(){
+       console.log(this.props.user)
     let name = ""
     if (this.props.user !== undefined){
        name = this.props.user.firstname;

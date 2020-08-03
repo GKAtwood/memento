@@ -45,12 +45,12 @@ class UserEdit extends Component {
                     FIRST NAME<br/>{this.props.user.firstName} &nbsp;
                     <button onClick={e=>this.setState({aa:true})}>edit</button> 
                     {this.state.aa && 
-                    <input placeholder={this.props.user.firstName} onChange={event=>{this.setState({firstName: event.target.value})}}/>}<br/><br/>
+                    <input type="text" placeholder={this.props.user.firstName} onChange={event=>{this.setState({firstName: event.target.value})}}/>}<br/><br/>
 
                     LAST NAME <br/>{this.props.user.lastName} &nbsp;
                     <button onClick={e=>this.setState({bb:true})}>edit</button>
                     {this.state.bb && 
-                    <input placeholder={this.props.user.lastName} onChange={event=>{this.setState({lastName: event.target.value})}}/>}<br/><br/>
+                    <input type="text" placeholder={this.props.user.lastName} onChange={event=>{this.setState({lastName: event.target.value})}}/>}<br/><br/>
 
                     EMAIL <br/>{this.props.user.email} &nbsp;
                     <button onClick={e=>this.setState({cc:true})}>edit</button>
