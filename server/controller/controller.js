@@ -109,7 +109,7 @@ module.exports= {
         const db = req.app.get('db') 
         db.get_entries([req.query.uid])
         .then(entry=> res.status(200).send(entry))
-        .catch(err=>{console.log(error);res.status(500).send(err)})
+        .catch(err=>{console.log(err);res.status(500).send(err)})
         },
 
         getOne:(req, res, next) => {

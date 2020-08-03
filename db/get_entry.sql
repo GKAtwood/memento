@@ -1,3 +1,3 @@
 SELECT * FROM memento_entries 
-WHERE eid = $1;
+WHERE eid = ${eid};
 
