@@ -26,13 +26,13 @@ if (hrs > 12) msg = "Good Afternoon";
 if (hrs > 17) msg = "Good Evening";     
 if (hrs > 22) msg = "Go to bed";        
 
-
+// console.log(props)
  
     return(
         
         <div className ='greeting'>
         
-         {msg}<br/><br/>
+         {msg} <img src="https://www.pngkey.com/png/detail/363-3631438_hi-bubble-welcome-comments-welcome-icon.png" alt="Hello" className="icon"  width="30"/><br/><br/>
         <h4>Today is {`${dateTime.toLocaleDateString()} ${dateTime.toLocaleTimeString()}`}</h4>
    
         </div>

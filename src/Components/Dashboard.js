@@ -60,7 +60,7 @@ class Dashboard extends Component{
    render(){
     let name = ""
     if (this.props.user !== undefined){
-       name=this.props.user.firstname;
+       name = this.props.user.firstname;
     }
     return(
         <div className="dashboard">
@@ -68,7 +68,8 @@ class Dashboard extends Component{
                 <main>
                 
                 <div className="dash-greeting">
-                    <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div><Greeting user={this.props.user}/>{name}!
+                    <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div><Greeting />
+                    <h1>{name}!</h1>
                 </div>
                     <Route path='/dashboard/gallery' render={()=><Gallery entries={this.state.entries}/>}/>
                     <Route path="/dashboard/board" component={Board}/>

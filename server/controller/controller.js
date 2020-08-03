@@ -109,7 +109,7 @@ module.exports= {
         const db = req.app.get('db') 
         db.get_entries([req.query.uid])
         .then(entry=> res.status(200).send(entry))
-        .catch(err=>{console.error(error);res.status(500).send(err)})
+        .catch(err=>{console.log(error);res.status(500).send(err)})
         },
 
         getOne:(req, res, next) => {
@@ -119,7 +119,7 @@ module.exports= {
             db.get_entry([req.params.eid])
             console.log('got one entry')
             .then(entry=> res.status(200).send(entry[0]))
-            .catch(err=>{console.error(err);res.status(500).send(err)})
+            .catch(err=>{console.log(err);res.status(500).send(err)})
             },
 
     delete: (req, res, next) => {
