@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Economica');
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 @import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel');
@@ -9,7 +13,9 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat');
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
 
-
+a {
+  text-decoration: none;
+}
 
 
 
@@ -764,6 +770,9 @@ a.instagram {
     color: rgb(0,80,120);
   }
 }
+
+
+
 
 
 

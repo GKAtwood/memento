@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import GalleryItem from './GalleryItem'
 
+
+
 export default class Gallery extends Component {
 
  
     render(props) {
 console.log(this.props)
         return (
+           
             <div className = "gallery-header">
                 <h1>Your memories</h1>
                 <h3>Kind of girly with a little bit of edge</h3>
@@ -17,9 +20,11 @@ console.log(this.props)
                 </div>
          
                 <div className="gallery-container">
+            
                     {this.props.entries.map(entry=><GalleryItem key={entry.eid} entry={entry}/>)}
                 </div>
             </div>
+            
         )
     }
 }

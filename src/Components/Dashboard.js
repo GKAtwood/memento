@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {login} from '../ducks/reducer'
+import {login, logOut} from '../ducks/reducer'
 import Gallery from './Gallery';
 import UserEdit from './UserEdit';
 import Board from './Board';
@@ -10,6 +10,10 @@ import AddEntry from './AddEntry';
 import Connect from './Connect'
 import Greeting from './Greeting'
 import Viewer from './Viewer'
+
+
+
+
 
 
 
@@ -54,24 +58,34 @@ class Dashboard extends Component{
             .catch(err => console.log(err));
         
           }
+
+           doLogout() {
+        console.log("Logout clicked");
+        this.props.logOut();
+    }
     
 
 
    render(){
        console.log(this.props.user)
+  
     let name = ""
     if (this.props.user !== undefined){
        name = this.props.user.firstname;
     }
     return(
+        
+       
         <div className="dashboard">
-                
+            
+         
                 <main>
                 
                 <div className="dash-greeting">
                     <div className="prof-pic-small"><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/f13d2595-f83b-4330-bf3f-7edc411502d7/69.jpg" alt=""/></div><Greeting />
                     <h1>{name}!</h1>
                 </div>
+                    
                     <Route path='/dashboard/gallery' render={()=><Gallery entries={this.state.entries}/>}/>
                     <Route path="/dashboard/board" component={Board}/>
                     <Route path='/dashboard/addentry/:type' component={AddEntry}/>
@@ -93,6 +107,7 @@ class Dashboard extends Component{
                     </div> 
                 </aside>
             </div>
+            
         )
     }}
 
