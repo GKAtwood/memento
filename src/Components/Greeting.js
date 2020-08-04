@@ -26,7 +26,7 @@ if (hrs > 12) msg = "Good Afternoon";
 if (hrs > 17) msg = "Good Evening";     
 if (hrs > 22) msg = "Go to bed";        
 
-// console.log(props)
+
  
     return(
         
