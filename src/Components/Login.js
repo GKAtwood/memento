@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {login} from '../ducks/reducer';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { useWindowSize } from "./useWindowSize";
 
 
 
-class Login extends Component {
+
+class Login extends React.PureComponent {
     constructor(props){
         super(props)
         this.state={
@@ -50,8 +52,14 @@ class Login extends Component {
 
 
     render() {
+        const { width, height } = useWindowSize();
         
         return (
+            <React.Fragment>
+               
+   
+        {/* <p>{"Component windowSize : " + width + "x" + height}</p>
+            */}
             <div className="App-login">
                 
                 <div className="login-container">
@@ -93,9 +101,12 @@ class Login extends Component {
                 </header>
                 
             </div>
+            </React.Fragment>
         );
-    }
-}
+    }}
+
+        
+        
  
 
 const mapDispatchToProps = dispatch => {
