@@ -1,9 +1,10 @@
 require('dotenv').config();
+const path = require('path');
 const express =require('express')
 const massive = require('massive');
 const session = require('express-session');
 const ctrl = require('./controller/controller');
-const path = require('path')
+
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
 
@@ -41,11 +42,11 @@ app.post('/api/memento/entries/create', ctrl.createEntry)
 app.delete('/api/memento/entries/delete/:eid', ctrl.delete)
 app.get('/api/memento/entries/get/:eid', ctrl.getOne);
 
-app.use(express.static(__dirname + '/../build'))
+app.use( express.static( `${__dirname}/../build` ) );
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'))
-})
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 
 
