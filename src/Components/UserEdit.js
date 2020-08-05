@@ -62,7 +62,7 @@ class UserEdit extends Component {
                     {this.state.dd && 
                     <input type="password"  onChange={event=>{this.setState({password: event.target.value})}}/>}<br/><br/>
 
-                    *Don't worry we won't share your info.<br/>
+                    *Don't worry your info is safe with us.<br/>
                         <button className="big-button" onClick={event=>{this.editUser(this.state.firstName, this.state.lastName, this.state.email,this.state.password)} }>Submit</button>  
                     </div>
                 </div>
