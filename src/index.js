@@ -13,14 +13,15 @@ const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRout
 
 
 ReactDOM.render(
+
   
+  <Router>
   <Provider store={store}>
-    <Router>
-  <React.StrictMode>
+   <React.StrictMode>
     <App />
   </React.StrictMode>
-  </Router>
-  </Provider>,
+  </Provider>
+  </Router>,
   document.getElementById('root')
 );
 
