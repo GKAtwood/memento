@@ -116,8 +116,7 @@ module.exports= {
             console.log('getOne eid', req.params.eid)
             const db = req.app.get('db')
             console.log('req.params', req.params.eid)
-            db.get_entry([req.params.eid])
-            console.log('got one entry')
+            db.get_entry({eid: req.params.eid})
             .then(entry=> res.status(200).send(entry[0]))
             .catch(err=>{console.log(err);res.status(500).send(err)})
             },
@@ -125,8 +124,8 @@ module.exports= {
     delete: (req, res, next) => {
         const db = req.app.get('db')
         console.log('entry delete eid',req.params.eid)
-        db.delete_entry([req.params.eid])
-        .then(res=> res.status(200).send(resp))
+        db.delete_entry({eid: req.params.eid})
+        .then(resp=> res.status(200).send(resp))
         .catch(err=>{console.error(err);res.status(500).send(err)})
         },
 
@@ -140,14 +139,7 @@ module.exports= {
                 db.edit_user({uid: req.params.uid, firstName: req.body.firstName,lastName: req.body.lastName, email:req.body.email, password: password})
                 .then(user=> {
                     console.log('got here!')
-                    req.session.user={
-                        uid: user[0].uid,
-                        firstName: user[0].firstName, 
-                        lastName: user[0].lastName, 
-                        email: user[0].email, 
-                        password: user[0].password
-                        
-                    }
+                    req.session.user={...user[0]}
                     console.log('req.session', req.session.user)
                     res.status(200).json({user: req.session.user});             
                 }).catch(err=>{console.error(err);res.status(500).send(err)})
