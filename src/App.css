@@ -719,15 +719,17 @@ a.instagram {
   padding-right: 30px;
 }
  h1{
-  font-family: 'Marvel', sans-serif;
+  font-family: 'Caveat';
   color:black; 
+
 }
  h3{
-  font-family: 'Satisfy', cursive;
+  font-family: 'Caveat', cursive;
   color: #ff6040;
 }
 .Viewer p{
-  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  font-family: 'Caveat';
+  font-size: 20px;
 }
 #mob123 {
   display: none;
@@ -752,14 +754,17 @@ a.instagram {
 #entry-delete {
   color: red;
   cursor: pointer;
-  font-family: 'Trebuchet MS',  sans-serif;
-  border-style: inset;
+  font-family: 'Marvel';
+  font-weight: bolder;
+  
+  border-style: line;
   border: rgb(7, 7, 7);
 }
 #entry-delete a {
   color: rgb(0,80,120);
   cursor: pointer;
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: 'Marvel';
+  font-weight: bolder;
 }
 @media (max-width: 450px) {
   #bigger-image {
