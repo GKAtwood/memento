@@ -13,7 +13,7 @@ console.log(this.props)
            
             <div className = "gallery-header">
                 <h1>Your memories</h1>
-                <h3>Kind of girly with a little bit of edge</h3>
+                <h3>We don't remember days, we remember moments</h3>
                 <div className="add-box">
                     <Link to="/dashboard/addentry/photo"><button className="big-button"> photo</button></Link>
                     <Link to="/dashboard/addentry/journal"><button className="big-button"> journal</button></Link>
