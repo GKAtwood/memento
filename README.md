@@ -1,5 +1,11 @@
 Personal Project @ DevMountain
 
+Immersive Full Stack Website 
+A React-based website that lets user register, login and upload photos and journal notes and displays them in a gallery
+The app was designed to be responsive to different devices. 
+Users are authenticated at each session, and use full CRUD to communicate through HTTP and express server to manipulate a Postgres database that stores user data as well as the photo/journal entries of each user.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
